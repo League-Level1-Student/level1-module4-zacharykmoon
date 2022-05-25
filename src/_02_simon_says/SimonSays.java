@@ -31,6 +31,7 @@ public class SimonSays extends KeyAdapter {
 	// Complete steps 1 - 7 before you test
 	// 1. Declare a JFrame variable
 	JFrame simon = new JFrame();
+	private int points;
 
 	public void run() {
 		// 2. Add the four images that match keyboard keys like this:
@@ -53,9 +54,27 @@ public class SimonSays extends KeyAdapter {
 		// 15. Make a points variable to track the score.
 
 		// 16. If the keyCode matches the imageIndex and "Simon says"
+int keyCode = e.getKeyCode();
 
+if(keyCode == imageIndex) {
+	if(simonSays) {
+		points++;
+		System.out.println("You are correct!");
+		
+	}
+}
+if(keyCode != imageIndex && !simonSays) {
+	if(simonSays) {
+		points++;
+		System.out.println("You are correct!");
+	}
+	
+}
+tries++;
 		// 17. Increase the value of score
-
+if(tries>9) {
+	JOptionPane.showMessageDialog(null, "your score" + points);
+}
 		// 18. Use the speak method to tell the user they were correct
 
 		// 19. If the keyCode doesn't match the imageIndex and "Simon didn't
@@ -80,21 +99,35 @@ public class SimonSays extends KeyAdapter {
 
 	private void showImage() {
 		// 5. Initialize your frame to a new JFrame()
-
+JFrame frame = new JFrame();
+frame.setVisible(true);
+frame.add(getNextRandomImage());
+frame.pack();
 		// 6. Set the frame to visible
+frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		// 7. Uncomment the following line to add a random image to your frame
 		// frame.add(getNextRandomImage());
+frame.addKeyListener(this);
 
+Random random = new Random();
+simonSays = random.nextBoolean();
 		// 8. Set the name of your frame
-
+int r = new Random().nextInt();
 		// 9. Pack the frame
-
-		// 10. Set the defaultCloseOperation of your frame to
+if(simonSays) {
+	speak("Simon says press this key");
+	simonSays = true;
+	
+}
+else{
+	speak("Press this key");
+	simonSays = false;// 10. Set the defaultCloseOperation of your frame to
+}
 		// JFrame.EXIT_ON_CLOSE
 
 		// 11. Add a key listener to the frame
-
+frame.addKeyListener(this);
 		// 12. Create a new instance of Random
 
 		// 13. Use the Random and the speak method to either say
