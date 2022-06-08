@@ -105,10 +105,9 @@ fourthButton.addActionListener(this);
 	private JButton createButton(String dollarAmount) {
 		
 		// Create a new JButton
-JButton Button = new JButton();
-
-button.setText(dollarAmount);
-buttonCount = buttonCount+1;
+JButton button = new JButton(dollarAmount);
+ 
+buttonCount++;
 return button;
 		// Set the text of the button to the dollarAmount
 
@@ -116,7 +115,7 @@ return button;
 
 		// Return your new button instead of the temporary button
 
-		return new JButton("temporary button");
+		
 	}
 
 	public void actionPerformed(ActionEvent e) {
@@ -129,20 +128,20 @@ return button;
 
 			// Call the askQuestion() method
  if(buttonPressed.equals(firstButton)) {
-	 askQuestion("Our planet is called Earth","Yes",100 );
+	 askQuestion("What mob in MC explodes","creeper",100 );
  }
 		// Complete the code in the askQuestion() method. When you play the game, the score should change.
 
 		// If the buttonPressed was the secondButton
  if(buttonPressed.equals(secondButton)) {
-	 askQuestion("What planet has rings?","Saturn",200 );
+	 askQuestion("How many ingots can a golem drop Max","5",200 );
  }
 			// Call the askQuestion() method with a harder question
  if(buttonPressed.equals(thirdButton)) {
-	 askQuestion("What is the closest planet to the sun?","Mercury",400 );
+	 askQuestion("What block pushes other blocks when activated by redstone", "Piston",400 );
  }
  if(buttonPressed.equals(fourthButton)) {
-	 askQuestion("Which planet is a Gas Giant ","Uranus",600 );
+	 askQuestion("Which block has the lowest light source? ","mushroom",600 );
  }
  
 		// Clear the text on the button that was pressed (set the button text to nothing)
@@ -155,16 +154,17 @@ return button;
 		playJeopardyTheme();
 		// Remove this temporary message and replace it with a pop-up that asks the user the question
 		JOptionPane.showMessageDialog(null, "this is where the question will be asked");
-		
+		String answer = JOptionPane.showInputDialog(question);
 		// Stop the theme music when they have entered their response. Hint: use the sound variable 
 		if(answer.equalsIgnoreCase(correctAnswer)) {
-			
+			score+=prizeMoney;
+			JOptionPane.showInputDialog(null,"you are correct");
 			 stopJeopardyTheme();
 		}
 		// If the answer is correct
 		else {
 			stopJeopardyTheme();
-			score=score-prizeMoney;
+			score-=prizeMoney;
 			JOptionPane.showMessageDialog(null,"nope , it was"+correctAnswer+"your score has been decreased by" +prizeMoney);
 			updateScore();
 		}
