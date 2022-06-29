@@ -10,11 +10,14 @@ import java.util.Random;
 import javax.swing.JOptionPane;
 
 public class Magic8Ball {
+	public static void main(String[] args) {
+		
 	Random r = new Random();
 	int randNum = r.nextInt(4);
 	System.out.println(randNum);
 	
 	JOptionPane.showInputDialog("ask a question");
+	
 	if(randNum==0) {
 		System.out.println("yes");
 	}

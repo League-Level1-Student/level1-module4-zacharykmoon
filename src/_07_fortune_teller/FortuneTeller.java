@@ -57,7 +57,7 @@ System.out.println(mouseY);
    		 // 8. Find a spooky sound and put it in your _07_fortune_teller package (freesound.org)
    		 // play("src/_07_fortune_teller/creepy-noise.wav");
    		 // 9. Play the sound
-         
+         play("creepy-noise.wav");
    		 // 10. Insert your completed Magic 8 ball code here
 Magic8Ball();
    	 }
