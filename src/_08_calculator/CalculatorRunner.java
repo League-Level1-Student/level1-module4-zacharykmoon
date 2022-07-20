@@ -7,7 +7,7 @@ import javax.swing.JFrame;
 
 public class CalculatorRunner {
 public static void main(String[] args) {
-	Calculator cal = new Calculator();
+	calculator cal = new calculator();
 	cal.run();
 }
 }
