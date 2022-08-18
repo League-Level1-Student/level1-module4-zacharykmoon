@@ -6,7 +6,7 @@ public class SlotMachineRunner {
 
 	public static void main(String[] args) throws MalformedURLException {
 		
-		SlotMachine s = new SlotMachine();
+		SlotMachine s = new SlotMachinse();
 		
 	}
 }
